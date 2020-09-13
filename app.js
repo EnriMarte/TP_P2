@@ -25,6 +25,11 @@ app.use('/users', usersRouter);
 let rutasAgregarPost = require("./routes/agregarPost");
 app.use("/agregarPost", rutasAgregarPost)
 
+let rutasDetallePost = require("./routes/detallePost");
+app.use("/detallePost", rutasDetallePost)
+
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
