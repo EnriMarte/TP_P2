@@ -22,17 +22,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
+let rutasAgregarPost = require("./routes/agregarPost");
+app.use("/agregarPost", rutasAgregarPost)
+
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
 });
-
-
-let rutasAgregarPost = require("./routes/agregarPost");
-app.use("/agregarPost", rutasAgregarPost)
-
-let rutasDetallePost = require("./routes/detallePost");
-app.use("/detallePost", rutasDetallePost)
 
 
 // error handler
