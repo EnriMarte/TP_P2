@@ -22,11 +22,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
-let rutasAgregarPost = require("./routes/agregarPost");
-app.use("/agregarPost", rutasAgregarPost)
-
-let rutasDetallePost = require("./routes/detallePost");
-app.use("/detallePost", rutasDetallePost)
+let rutaPost = require("./routes/rutaPost");
+app.use("/post", rutaPost)
+app.use("/detallePost", rutaPost)
 
 
 

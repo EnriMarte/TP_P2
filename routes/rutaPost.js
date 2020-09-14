@@ -3,7 +3,10 @@ var router = express.Router();
 let postController = require("../controllers/postController.js")
 
 /* GET home page. */
-router.get('/', postController.agregarPost);
+router.get('/', postController.detallePost);
+
+router.get('/agregar', postController.agregarPost)
+
 
 
 module.exports = router;

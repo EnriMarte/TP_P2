@@ -1,6 +1,9 @@
 let postController = {
     agregarPost: function(req, res, next) {
-        res.send("asdasd")
+        res.render("agregarPost")
+      },
+    detallePost: function(req, res, next) {
+        res.render("detallePost")
       },
 };
 
