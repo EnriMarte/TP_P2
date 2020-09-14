@@ -24,7 +24,10 @@ app.use('/users', usersRouter);
 
 let rutaPost = require("./routes/rutaPost");
 app.use("/post", rutaPost)
-app.use("/detallePost", rutaPost)
+
+let rutaPerfil = require("./routes/rutaPerfil");
+app.use("/perfil", rutaPerfil)
+
 
 
 
