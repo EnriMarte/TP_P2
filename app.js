@@ -28,7 +28,8 @@ app.use("/post", rutaPost)
 let rutaPerfil = require("./routes/rutaPerfil");
 app.use("/perfil", rutaPerfil)
 
-
+let rutaRegistracion = require("./routes/registracion")
+app.use("/registracion", rutaRegistracion)
 
 
 
