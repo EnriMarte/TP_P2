@@ -2,6 +2,10 @@ footer{
     height: 40px;
     color: white;
     padding: 0 10px;
+    background-color: #f89a9a !important;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 13px;
+    text-shadow: 1px 0 0 black, -1px 0 0 black, 0 1px 0 black, 0 -1px 0 black, 1px 1px black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;
 }
 
 footer ul{
