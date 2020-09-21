@@ -6,6 +6,7 @@
 header{
     height: 55px;
     padding-top: 10px;
+    background-color: #f89a9a !important;
 }
 header section{
     height: 100%;
