@@ -28,10 +28,11 @@ app.use("/post", rutaPost)
 let rutaPerfil = require("./routes/rutaPerfil");
 app.use("/perfil", rutaPerfil)
 
-let rutaRegistracion = require("./routes/registracion")
+let rutaRegistracion = require("./routes/rutaRegistracion")
 app.use("/registracion", rutaRegistracion)
 
-
+let rutaLogin = require("./routes/rutaLogin")
+app.use("/login", rutaLogin)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
