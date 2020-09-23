@@ -34,6 +34,12 @@ app.use("/registracion", rutaRegistracion)
 let rutaLogin = require("./routes/rutaLogin")
 app.use("/login", rutaLogin)
 
+let rutaHeader = require("./routes/rutaHeader")
+app.use("/header", rutaHeader)
+
+let rutaUsuario = require("./routes/rutaUsuario")
+app.use("/detalleUsuario", rutaUsuario)
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
