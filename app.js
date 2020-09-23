@@ -22,6 +22,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
+// RUTAS
+
 let rutaPost = require("./routes/rutaPost");
 app.use("/post", rutaPost)
 
@@ -39,6 +41,8 @@ app.use("/header", rutaHeader)
 
 let rutaUsuario = require("./routes/rutaUsuario")
 app.use("/detalleUsuario", rutaUsuario)
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
