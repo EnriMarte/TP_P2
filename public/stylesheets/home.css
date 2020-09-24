@@ -16,6 +16,8 @@ article.post div.info-usuario img{
 }
 article.post div.info-usuario h4{
    margin: 8px 10px;
+   font-family: 'Alegreya', serif;
+   font-size: 23px;
 }
 
 article.post div.post-body{
@@ -54,11 +56,12 @@ article.post div.post-comentarios ul li{
     display: flex;
 }
 article.post div.post-comentarios ul li a{
-    color: black;
+    color: #333;
     font-weight: bolder;
     text-decoration: none;
+    font-family: 'Alegreya', serif;
+    font-size: 18px;
 }
 article.post div.post-comentarios ul li p{
     margin: 0 5px;
 }
-

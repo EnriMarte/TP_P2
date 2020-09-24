@@ -16,3 +16,6 @@
     color: gray;
     text-decoration: none;
 }
+.uk-h3, h3 {
+    font-family: 'Gloria Hallelujah', cursive !important;
+}
