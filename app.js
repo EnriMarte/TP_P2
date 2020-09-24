@@ -36,8 +36,8 @@ app.use("/registracion", rutaRegistracion)
 let rutaLogin = require("./routes/rutaLogin")
 app.use("/login", rutaLogin)
 
-let rutaUsuario = require("./routes/rutaUsuario")
-app.use("/detalleUsuario", rutaUsuario)
+// let rutaUsuario = require("./routes/rutaUsuario")
+// app.use("/detalleUsuario", rutaUsuario)
 
 
 
