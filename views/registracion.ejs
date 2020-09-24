@@ -35,13 +35,12 @@
     <main>
         <div class="uk-section uk-section-small">
             <div class="uk-container">
-                <form action="/">
+                <form action="/regOk" method="POST">
                     <fieldset class="uk-fieldset">
                 
-                        <legend class="uk-legend">Registracion</legend>
-                
+                        <legend class="uk-legend">Registracion <% nombre %></legend>
                         <div class="uk-margin">
-                            <input id="nombre" class="uk-input" type="text" placeholder="nombre" value="hola">
+                            <input for="nombre" class="uk-input" type="text" placeholder="nombre" value="hola">
                         </div>
                         <div class="uk-margin">
                             <input id="apellido" class="uk-input" type="text" placeholder="apellido">
