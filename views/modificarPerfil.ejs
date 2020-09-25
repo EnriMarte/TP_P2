@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FalseBook</title>
+    <link rel="icon"
+        href="https://w7.pngwing.com/pngs/624/811/png-transparent-computer-icons-facebook-social-media-f-logo-cross-brand.png"
+        type="image/x-icon">
+
+    <link rel="stylesheet" href="/stylesheets/registracion.css">
+    <link rel="stylesheet" href="/stylesheets/header.css">
+    <link rel="stylesheet" href="/stylesheets/footer.css">
+    <link rel="stylesheet" href="/stylesheets/general.css">
+
+    <!-- UiKit -->
+    <!-- <link rel="stylesheet" href="css/uikit.min.css">
+    <script src="js/uikit-icons.min.js"></script>
+    <script src="js/uikit.min.js"></script> -->
+    <!-- UiKit -->
+
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/css/uikit.min.css" />
+
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/js/uikit-icons.min.js"></script>
+</head>
+
+<body>
+    <% include partials/header2 %>
+
+
+    <main>
+        <div class="uk-section uk-section-small">
+            <div class="uk-container">
+                <form action="/rutaPerfil" method="POST">
+                    <fieldset class="uk-fieldset">
+                
+                        <legend class="uk-legend"> Modificar </legend>
+                        <div class="uk-margin">
+                            <input id="username" class="uk-input" type="text" placeholder="username">
+                        </div>
+                        <div class="uk-margin">
+                            <input id="email" class="uk-input" type="email" placeholder="ejemplo@mail.com">
+                        </div>
+                        <div class="uk-margin">
+                            <input id="password" class="uk-input" type="password" placeholder="contraseña">
+                        </div>
+                        <div class="uk-margin">
+                            <input id="telefono" class="uk-input" type="number" placeholder="1133484733">
+                        </div>
+                        <div class="uk-margin">
+                            <input type="submit" class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom" value="Realizar los cambios"></input>
+                        </div>
+
+
+                
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <% include partials/footer %>
+
+</body>
+
+</html>
