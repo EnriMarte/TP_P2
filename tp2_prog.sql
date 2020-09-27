@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-09-2020 a las 17:31:00
+-- Tiempo de generación: 28-09-2020 a las 01:37:29
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.4.6
 
@@ -71,7 +71,11 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nombre`, `apellido`, `nombreUser`, `fechaNacimiento`, `mail`, `password`, `telefono`) VALUES
-(2, 'Company Inc', 'Highway 37', '', '0000-00-00', '', '', 0);
+(3, 'Cape', 'Valen', 'CapeValen', '2020-09-01', 'qwdqw@asdas@.com', '123', 123123123),
+(4, 'luisma', 'lola', 'luismalola', '2020-02-01', 'dsafqw@asdas@.com', '123', 12333323),
+(5, 'Lorenzo', 'Martel', 'Enenen', '2020-06-09', 'ewmwerm@qweqwe', 'as12123', 123123123),
+(7, 'Aldo', 'Peroti', 'AldoPeroti', '2020-07-09', 'peoel@wedf.com', 'sfsdfsdf', 123123122),
+(8, 'Lal', 'lele', 'LELELA', '2019-04-09', 'ememem@hotm.com', '123123', 123121513);
 
 --
 -- Índices para tablas volcadas
@@ -120,7 +124,7 @@ ALTER TABLE `posteos`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Restricciones para tablas volcadas
