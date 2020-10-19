@@ -10,10 +10,12 @@ module.exports = (sequelize, DataTypes) => {
             primaryKey: true
         },
         idUsuario: {
-            data: dataTypes.INTEGER
+            data: dataTypes.INTEGER,
+            foreignKey: true,
         },
         idPost: {
-            data: dataTypes.INTEGER
+            data: dataTypes.INTEGER,
+            foreignKey: true,
         },
         txtComentario: {
             data: dataTypes.STRING

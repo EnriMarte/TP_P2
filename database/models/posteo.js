@@ -10,7 +10,8 @@ module.exports = (sequelize, DataTypes) => {
             primaryKey: true
         },
         idUsuario: {
-            data: dataTypes.INTEGER
+            data: dataTypes.INTEGER,
+            foreignKey: true,
         },
          urlImagen:{
             data: dataTypes.STRING
@@ -19,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
             data: dataTypes.STRING
         },
         fechaCreacion: {
-            data: dataTypes.DATE 
+            data: dataTypes.DATETIME
         }
     };
 
