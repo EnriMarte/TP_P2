@@ -1,5 +1,4 @@
 const app = require('../app');
-const conexion = require('./conectionController');
 
 let registracionController = {
     registrar: function(req, res, next) {
