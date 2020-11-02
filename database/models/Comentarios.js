@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-    let alias = "Usuarios";
+    let alias = "comentarios";
 
     let cols = {
 
@@ -13,19 +13,19 @@ module.exports = (sequelize, DataTypes) => {
     };
 
     let config = {
-        tableName: "usuarios",
+        tableName: "comentarios",
         timestamps: false
     };
 
+    const comentarios = sequelize.define(alias, cols, config);
 
-
-    const usuarios = sequelize.define(alias, cols, config);
-    
-    // usuarios.associate = function(models) {
-    //     usuarios.hasMany(models.Posteos, {
+    // comentarios.associate = function(models) {
+    //     comentarios.belongsTo(models.Posteos, {
     //         as: "posteos",
-    //         foreignKey: "usuarios_id",
+    //         foreignKey: "posteos_id",
     //     });     
     // }
-    return usuarios;
+   
+
+    return comentarios;
 }
