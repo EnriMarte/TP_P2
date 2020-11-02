@@ -13,17 +13,13 @@ module.exports = (sequelize, DataTypes) => {
     };
 
     let config = {
-        tableName: "Usuarios",
+        tableName: "usuarios",
         timestamps: false
     };
 
 
+
     const usuarios = sequelize.define(alias, cols, config);
-    usuarios.associate = function (models) {
-        usuarios.hasMany(posteos,{
-            as: "Usuarios",
-            foreignKey: "usuarios_id",
-        })
-    }
+
     return usuarios;
 }
