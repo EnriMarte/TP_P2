@@ -16,7 +16,7 @@ let userController = {
     },
     storeUser: function (req, res, next){
         if (req.session.usuarioLogueado != undefined) {
-            res.redirect("/movies");
+            res.redirect("/register");
         }
 
         let nombre = req.body.nombre;
