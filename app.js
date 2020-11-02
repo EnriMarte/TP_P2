@@ -31,18 +31,11 @@ app.use('/users', usersRouter);
 let rutaPost = require("./routes/rutaPost");
 app.use("/post", rutaPost)
 
-let rutaPerfil = require("./routes/rutaPerfil");
-app.use("/perfil", rutaPerfil)
 
-let rutaRegistracion = require("./routes/rutaRegistracion")
-app.use("/registracion", rutaRegistracion)
-
-let rutaLogin = require("./routes/rutaLogin")
-app.use("/login", rutaLogin)
+let rutaUsuario = require("./routes/rutaUsuario")
+app.use("/user", rutaUsuario)
 
 
-let rutaRegOk = require("./routes/regOk")
-app.use("/regOk", rutaRegOk)
 
 
 // let rutaUsuario = require("./routes/rutaUsuario")

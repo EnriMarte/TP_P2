@@ -9,16 +9,18 @@
                     <ul class="uk-flex uk-flex-between uk-flex-middle">
                         <li><a href="/">Home</a></li>
                         <li><a href="/post/agregar">Postear</a></li>
-                        <li><a href="/perfil">Perfil</a></li>
-                        <li><a href="/login">Login</a></li>
+                        <li><a href="/user/Perfil">Perfil</a></li>
+                        <li><a href="/user/Login">Login</a></li>
+                        <li><a href="/user/register">Register</a></li>
+
                     </ul>
                 </div>
                 <div class="uk-navbar-right">
                     <ul class="uk-flex uk-flex-between uk-flex-middle">
                         <li>
-                            <form action="" class="uk-search uk-search-default">
+                            <form class="uk-search uk-search-default" action="/user/search" method="GET">
                                 <span uk-search-icon></span>
-                                <input type="search" class="uk-search-input" placeholder="Buscar...">
+                                <input type="text" class="uk-search-input" name="buscador" placeholder="Buscar...">
                             </form>
                         </li>
                     </ul>
