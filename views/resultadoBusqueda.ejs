@@ -36,12 +36,15 @@
         <div class="uk-section uk-section-small">
             <div class="uk-container uk-container-large uk-flex uk-flex-middle uk-flex-center">
                
-                <h2>Los resultados de busqueda son:</h2>
                 <ul>
-                    <% for( let i = 0; i < usuarios.length; i++ ) { %>
-                        <li>
-                            <%= usuarios[i].nombre %> 
-                        </li>    
+                    <% if(usuarios.length == 0) {%>
+                            <h2>No results</h2>
+                        <%} else{%>
+                            <% for( let i = 0; i < usuarios.length; i++ ) { %>
+                            <li>
+                                <%= usuarios[i].nombre %> 
+                            </li>    
+                             <% } %>
                     <% } %>
 
                 </ul>
