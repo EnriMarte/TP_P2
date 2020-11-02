@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-    let alias = "Usuarios";
+    let alias = "usuarios";
 
     let cols = {
 
@@ -21,11 +21,11 @@ module.exports = (sequelize, DataTypes) => {
 
     const usuarios = sequelize.define(alias, cols, config);
     
-    // usuarios.associate = function(models) {
-    //     usuarios.hasMany(models.Posteos, {
-    //         as: "posteos",
-    //         foreignKey: "usuarios_id",
-    //     });     
-    // }
+    usuarios.associate = function(models) {
+        usuarios.hasMany(models.posteos, {
+            as: "posteos",
+            foreignKey: "usuarios_id",
+        });     
+    }
     return usuarios;
 }

@@ -19,17 +19,17 @@ module.exports = (sequelize, DataTypes) => {
 
     const posteos = sequelize.define(alias, cols, config);
 
-    // posteos.associate = function(models) {
-    //     posteos.hasMany(models.Comentarios, {
-    //         as: "comentarios",
-    //         foreignKey: "posteos_id",
-    //     });     
-    // }
-    // posteos.associate = function(models) {
-    //     posteos.belongsTo(models.Usuarios, {
-    //         as: "usuarios",
-    //         foreignKey: "usuarios_id",
-    //     });     
-    // }
+    posteos.associate = function(models) {
+        posteos.hasMany(models.comentarios, {
+            as: "comentarios",
+            foreignKey: "posteos_id",
+        });     
+    }
+    posteos.associate = function(models) {
+        posteos.belongsTo(models.usuarios, {
+            as: "usuarios",
+            foreignKey: "usuarios_id",
+        });     
+    }
     return posteos;
 }

@@ -19,12 +19,12 @@ module.exports = (sequelize, DataTypes) => {
 
     const comentarios = sequelize.define(alias, cols, config);
 
-    // comentarios.associate = function(models) {
-    //     comentarios.belongsTo(models.Posteos, {
-    //         as: "posteos",
-    //         foreignKey: "posteos_id",
-    //     });     
-    // }
+    comentarios.associate = function(models) {
+        comentarios.belongsTo(models.posteos, {
+            as: "posteos",
+            foreignKey: "posteos_id",
+        });     
+    }
    
 
     return comentarios;
