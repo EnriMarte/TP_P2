@@ -23,10 +23,17 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(session({ secret: "Nuestro mensaje"}))
+app.use(session({ secret: "keipideipi"}))
 
+app.use(function(req, res, next) {
+
+  res.locals = {
+    usuarioLogueado: req.session.usuarioLogueado
+  }
+
+  next();
+})
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
 
 // RUTAS
 

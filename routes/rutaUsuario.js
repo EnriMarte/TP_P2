@@ -6,7 +6,9 @@ let userController = require('../controllers/userController');
 router.get('/', function(req, res, next) {
     res.send('respond with a resource');
   });
-router.get('/register', userController.registrar)
+router.get("/register", userController.registrar);
+router.post("/register", userController.storeUser);
+
 router.get('/login', userController.login)
 router.get('/regok', userController.regOk)
 router.get('/perfil', userController.perfil)
