@@ -1,7 +1,7 @@
 const { Sequelize, DataTypes } = require("sequelize/types");
 
 module.exports = (sequelize, DataTypes) => {
-    let alias = "posteos";
+    let alias = "Posteos";
 
     let cols = {
         id: {
@@ -25,11 +25,18 @@ module.exports = (sequelize, DataTypes) => {
     };
 
     let config = {
-        tableName: "posteos",
+        tableName: "Posteos",
         timestamps: false
     };
 
 
     const posteos = sequelize.define(alias, cols, config);
+    posteos.associate = function (models) {
+        posteos.hasMany(comentarios,{
+            as: "Comentarios",
+            foreignKey: "comentarios_id",
+        })
+    }
+
     return posteos;
 }

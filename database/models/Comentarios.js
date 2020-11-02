@@ -27,11 +27,19 @@ module.exports = (sequelize, DataTypes) => {
     };
 
     let config = {
-        tableName: "comentarios",
+        tableName: "Comentarios",
         timestamps: false
     };
 
 
     const comentarios = sequelize.define(alias, cols, config);
+    comentarios.associate = function (models) {
+        comentarios.belongsTo(posteos,{
+            as: "Posteos",
+            foreignKey: "posteos_id",
+        })
+    }
+
+
     return comentarios;
 }

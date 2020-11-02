@@ -9,6 +9,8 @@ var usersRouter = require('./routes/users');
 
 var session = require("express-session")
 
+let database = require("./database/models/index");
+
 var app = express();
 
 // view engine setup
