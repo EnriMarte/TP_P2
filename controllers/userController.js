@@ -7,9 +7,39 @@ let userController = {
     login: function (req, res, next) {
         res.render("login")
     },
+    processLogin: function(req, res, next){
+        if (req.session.usuarioLogueado != undefined) {
+            res.redirect("perfil");
+        }
+
+        // findAll retorna SIEMPRE un array. Si no matchean los datos findAll traer un array vacío pero SIEMPRE trae un array
+        // findOne en cambio tiene dos opciones. O trae el dato, o trae null.
+        db.usuarios.findOne(
+            {
+                where: [
+                    { nombreUser: req.body.username },
+                    
+                ]
+            }
+        )
+        .then(function(usuario) {
+            console.log(bcrypt.compareSync(req.body.password, usuario.password));
+            if (usuario == null) {
+                res.send("El mail no existe")
+            } else if (bcrypt.compareSync(req.body.password, usuario.password) == false) {
+                res.send("Mala contraseña")
+            } else {
+                req.session.usuarioLogueado = usuario;
+
+                res.redirect("Perfil");
+                // Todo bien!
+            }
+        })
+
+    },
     registrar: function(req, res, next) {
         if (req.session.usuarioLogueado != undefined) {
-            res.redirect("/user/perfil");
+            res.redirect("perfil");
         }
 
         res.render("registracion");
@@ -37,7 +67,7 @@ let userController = {
             telefono: telefono
         }
 
-        db.Usuarios.create(user)
+        db.usuarios.create(user)
         .then(function() {
             res.redirect("perfil");
         })
@@ -51,7 +81,7 @@ let userController = {
     search: function(req, res) {
         let buscandoUsuario = req.query.buscador;
 
-        db.Usuarios.findAll(
+        db.usuarios.findAll(
             {
                 where: [
                     { nombre: { [op.like]: "%" + buscandoUsuario + "%"} }
