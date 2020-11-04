@@ -5,6 +5,10 @@ let bcrypt = require("bcryptjs");
 
 let userController = {
     login: function (req, res, next) {
+        if (req.session.usuarioLogueado != undefined) {
+            res.redirect("perfil");
+            
+        }
         res.render("login")
     },
     processLogin: function(req, res, next){
@@ -30,7 +34,7 @@ let userController = {
                 res.send("Mala contraseña")
             } else {
                 req.session.usuarioLogueado = usuario;
-
+                
                 res.redirect("Perfil");
                 // Todo bien!
             }
@@ -69,7 +73,7 @@ let userController = {
 
         db.usuarios.create(user)
         .then(function() {
-            res.redirect("perfil");
+            res.redirect("/");
         })
     },
     regOk: function(req, res, next){
@@ -93,6 +97,11 @@ let userController = {
         .then(function(usuarios) {
             res.render("resultadoBusqueda", {usuarios: usuarios});
         })
+    },
+    cerrarSes: function(req, res){
+        req.session.usuarioLogueado = undefined;
+        
+        res.redirect("/");
     }
 }
 

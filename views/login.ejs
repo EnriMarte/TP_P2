@@ -30,7 +30,11 @@
 </head>
 
 <body>
-    <% include partials/header %>
+    <%if (usuarioLogueado == undefined){%>
+        <% include partials/header %>
+        <%}else{%>
+         <% include partials/headerLog %>
+        <%}%>
 
 
     <main>
