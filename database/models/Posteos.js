@@ -2,7 +2,11 @@ module.exports = (sequelize, DataTypes) => {
     let alias = "posteos";
 
     let cols = {
-        
+        id: {
+            type: DataTypes.INTEGER,
+            autoIncrement: true,
+            primaryKey: true
+        },
         idUsuario: DataTypes.INTEGER,
         urlImagen:  DataTypes.STRING, 
         txtPost: DataTypes.STRING,

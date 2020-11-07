@@ -2,6 +2,11 @@ module.exports = (sequelize, DataTypes) => {
     let alias = "usuarios";
 
     let cols = {
+        id: {
+            type: DataTypes.INTEGER,
+            autoIncrement: true,
+            primaryKey: true
+        },
         nombre: DataTypes.STRING,
         apellido:  DataTypes.STRING, 
         nombreUser: DataTypes.STRING,
@@ -22,6 +27,12 @@ module.exports = (sequelize, DataTypes) => {
     usuarios.associate = function(models) {
         usuarios.hasMany(models.posteos, {
             as: "posteos",
+            foreignKey: "usuarios_id",
+        });     
+    }
+    usuarios.associate = function(models) {
+        usuarios.hasMany(models.seguidores, {
+            as: "seguidores",
             foreignKey: "usuarios_id",
         });     
     }
