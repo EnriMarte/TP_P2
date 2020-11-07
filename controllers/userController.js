@@ -83,7 +83,6 @@ let userController = {
     },
     perfil: function(req, res, next){
         let idUsuarioAMostrar = req.params.id
-        
         db.usuarios.findOne(
             {
                 where: [
@@ -93,22 +92,18 @@ let userController = {
             }
         )
         .then(function(usuario) {
-            res.render("miPerfil" ,{usuario: usuario});
+            db.posteos.findAll(
+                {
+                    where: [
+                        { idUsuario: idUsuarioAMostrar },
+                    ]
+                }
+            )
+            .then(function(posteo){
+            res.render("miPerfil" ,{usuario: usuario, posteo: posteo});
+            })
         })
-    },
-    posteosMostrar: function(req, res, next){
-        let idUsuarioAMostrar = req.params.id
-        db.posteos.findAll(
-            {
-                where: [
-                    { idUsuario: idUsuarioAMostrar },
-                ]
-            }
-        )
-        .then(function(posteo) {
-            console.log("posteo");
-            res.render("miPerfil" ,{posteo: posteo});
-        })
+        
     },
     search: function(req, res) {
         let buscandoUsuario = req.query.buscador;

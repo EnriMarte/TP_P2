@@ -17,7 +17,6 @@ router.get("/cerrarSes", userController.cerrarSes);
 
 router.get('/regok', userController.regOk)
 router.get('/perfil/:id', userController.perfil)
-router.get('/perfil/:id', userController.posteosMostrar)
 
 router.get('/search', userController.search)
 
