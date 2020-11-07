@@ -1,7 +1,6 @@
 let db = require("../database/models")
 let op = db.Sequelize.Op;
 let bcrypt = require("bcryptjs");
-let dataPerfil = []
 
 let userController = {
     login: function (req, res, next) {
@@ -125,6 +124,31 @@ let userController = {
         req.session.usuarioLogueado = undefined;
         
         res.redirect("/");
+    },
+    edit: function(req, res) {
+        res.render("modificarPerfil", {perfilAEditar: perfilAEditar});
+    },
+    modify: function(req, res){
+        let nombreUser = req.body.username;
+        let mail = req.body.mail;
+        let password = req.body.password;
+        let telefono = req.body.telefono;
+
+        let usEdi = {
+            nombreUser: nombreUser,
+            mail: mail,
+            password: password,
+            telefono: telefono
+        }
+
+        db.usuarios.update(usEdi, { 
+            where: {
+                id: req.session.usuarioLogueado.id               
+            }
+        })
+        .then(function() {
+            res.render("modificarPerfil");
+         })
     }
 }
 
