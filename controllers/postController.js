@@ -11,7 +11,7 @@ let postController = {
     let desc = req.body.comentario;
     
     let post = {
-        idUsuario: req.session.usuarioLogueado.idUsuario,
+        idUsuario: req.session.usuarioLogueado.id,
         urlImagen: urlImg,
         txtPost: desc
       }
