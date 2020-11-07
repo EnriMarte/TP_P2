@@ -1,7 +1,7 @@
 let db = require("../database/models")
 let op = db.Sequelize.Op;
 let bcrypt = require("bcryptjs");
-
+let dataPerfil = []
 
 let userController = {
     login: function (req, res, next) {
@@ -35,7 +35,7 @@ let userController = {
             } else {
                 req.session.usuarioLogueado = usuario;
                 
-                res.redirect("Perfil");
+                res.redirect("Perfil/" + usuario.id);
                 // Todo bien!
             }
         })
@@ -43,7 +43,7 @@ let userController = {
     },
     registrar: function(req, res, next) {
         if (req.session.usuarioLogueado != undefined) {
-            res.redirect("perfil");
+            res.redirect("perfil/" + req.session.usuarioLogueado.id);
         }
 
         res.render("registracion");
@@ -82,7 +82,33 @@ let userController = {
         res.render("regOk")
     },
     perfil: function(req, res, next){
-        res.render("miPerfil")
+        let idUsuarioAMostrar = req.params.id
+        
+        db.usuarios.findOne(
+            {
+                where: [
+                    { id: idUsuarioAMostrar },
+                    
+                ]
+            }
+        )
+        .then(function(usuario) {
+            res.render("miPerfil" ,{usuario: usuario});
+        })
+    },
+    posteosMostrar: function(req, res, next){
+        let idUsuarioAMostrar = req.params.id
+        db.posteos.findAll(
+            {
+                where: [
+                    { idUsuario: idUsuarioAMostrar },
+                ]
+            }
+        )
+        .then(function(posteo) {
+            console.log("posteo");
+            res.render("miPerfil" ,{posteo: posteo});
+        })
     },
     search: function(req, res) {
         let buscandoUsuario = req.query.buscador;
