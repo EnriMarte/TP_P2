@@ -38,22 +38,19 @@
     <main>
         <div class="uk-section uk-section-small">
             <div class="uk-container">
-                <form action="/" method="">
+                <form action="/post/agregar" method="POST">
                     <fieldset class="uk-fieldset">
                 
                         <legend class="uk-legend">Agregar post</legend>
                         <div class="uk-margin">
-                            <input for="url" class="uk-input" type="text" placeholder="URL de imagen">
+                            <input name="url" class="uk-input" type="text" placeholder="URL de imagen">
                         </div>
                         <div class="uk-margin">
-                            <input for="comentario" class="uk-input" type="text" placeholder="Comentario">
+                            <input name="comentario" class="uk-input" type="text" placeholder="Comentario">
                         </div>
-
                         <div class="uk-margin">
                             <input type="submit" class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom" value="Postear!"></input>
                         </div>
-
-                
                     </fieldset>
                 </form>
             </div>

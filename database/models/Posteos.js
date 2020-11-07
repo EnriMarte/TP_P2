@@ -2,14 +2,11 @@ module.exports = (sequelize, DataTypes) => {
     let alias = "posteos";
 
     let cols = {
-
-        nombre: DataTypes.STRING,
-        apellido:  DataTypes.STRING, 
-        nombreUser: DataTypes.STRING,
-        fechaNacimiento: DataTypes.DATE,
-        mail: DataTypes.STRING,
-        password: DataTypes.STRING,
-        telefono: DataTypes.INTEGER
+        
+        idUsuario: DataTypes.INTEGER,
+        urlImagen:  DataTypes.STRING, 
+        txtPost: DataTypes.STRING,
+        fechaCreacion: DataTypes.DATE,
     };
 
     let config = {

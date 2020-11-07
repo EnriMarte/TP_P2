@@ -46,7 +46,9 @@
                         <%} else{%>
                             <% for( let i = 0; i < usuarios.length; i++ ) { %>
                             <li>
-                                <%= usuarios[i].nombre %> 
+                                <a href="user/Perfil?<%usuarios[i].idUsuario%>">
+                                <%= usuarios[i].nombre %> <%= usuarios[i].apellido %>
+                                </a> 
                             </li>    
                              <% } %>
                     <% } %>

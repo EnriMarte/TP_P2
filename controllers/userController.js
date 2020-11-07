@@ -60,6 +60,7 @@ let userController = {
         let email = req.body.email;
         let password = bcrypt.hashSync(req.body.password, 10);
         let telefono = req.body.telefono;
+        let fotoPerfil = req.body.fotoPerfil;
 
         let user = {
             nombre: nombre,
@@ -68,7 +69,8 @@ let userController = {
             fechaNacimiento: fecha,
             mail: email,
             password: password,
-            telefono: telefono
+            telefono: telefono,
+            fotoPerfil: fotoPerfil
         }
 
         db.usuarios.create(user)

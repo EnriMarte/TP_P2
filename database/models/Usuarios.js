@@ -2,14 +2,14 @@ module.exports = (sequelize, DataTypes) => {
     let alias = "usuarios";
 
     let cols = {
-
         nombre: DataTypes.STRING,
         apellido:  DataTypes.STRING, 
         nombreUser: DataTypes.STRING,
         fechaNacimiento: DataTypes.DATE,
         mail: DataTypes.STRING,
         password: DataTypes.STRING,
-        telefono: DataTypes.INTEGER
+        telefono: DataTypes.INTEGER,
+        fotoPerfil: DataTypes.STRING
     };
 
     let config = {
