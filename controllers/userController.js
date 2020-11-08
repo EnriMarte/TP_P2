@@ -126,28 +126,38 @@ let userController = {
         res.redirect("/");
     },
     edit: function(req, res) {
-        res.render("modificarPerfil", {perfilAEditar: perfilAEditar});
+        let usuarioModificar = req.session.usuarioLogueado
+
+        res.render("modificarPerfil", {usuarioModificar: usuarioModificar});
     },
     modify: function(req, res){
+        let idUser = req.session.usuarioLogueado.id
+        let nombre = req.body.nombre;
+        let apellido = req.body.apellido;
         let nombreUser = req.body.username;
-        let mail = req.body.mail;
-        let password = req.body.password;
+        let mail = req.body.email;
+        let password2 = bcrypt.hashSync(req.body.password, 10);
         let telefono = req.body.telefono;
+        let fotoPerfil = req.body.fotoPerfil;
+
 
         let usEdi = {
+            nombre: nombre,
+            apellido: apellido,
             nombreUser: nombreUser,
             mail: mail,
-            password: password,
-            telefono: telefono
+            password: password2,
+            telefono: telefono,
+            fotoPerfil: fotoPerfil
         }
 
         db.usuarios.update(usEdi, { 
             where: {
-                id: req.session.usuarioLogueado.id               
+                id: idUser               
             }
         })
         .then(function() {
-            res.render("modificarPerfil");
+            res.render("index");
          })
     }
 }

@@ -20,7 +20,7 @@ router.get('/perfil/:id', userController.perfil)
 
 router.get('/search', userController.search)
 
-router.get('/modificar', userController.modify)
+router.get('/modificar', userController.edit)
 router.post('/modificar', userController.modify)
 
 

@@ -44,16 +44,25 @@
                 
                         <legend class="uk-legend"> Modificar </legend>
                         <div class="uk-margin">
-                            <input name="username" class="uk-input" type="text" placeholder="username">
+                            <input name="nombre" class="uk-input" type="text" value="<%= usuarioLogueado.nombre %>">
                         </div>
                         <div class="uk-margin">
-                            <input name="email" class="uk-input" type="email" placeholder="ejemplo@mail.com">
+                            <input name="apellido" class="uk-input" type="text" value="<%= usuarioModificar.apellido %>">
                         </div>
                         <div class="uk-margin">
-                            <input name="password" class="uk-input" type="password" placeholder="contraseña">
+                            <input name="username" class="uk-input" type="text" value="<%= usuarioLogueado.username %>">
                         </div>
                         <div class="uk-margin">
-                            <input name="telefono" class="uk-input" type="number" placeholder="1133484733">
+                            <input name="email" class="uk-input" type="email" value="<%= usuarioLogueado.mail %>">
+                        </div>
+                        <div class="uk-margin">
+                            <input name="password" class="uk-input" type="password" >
+                        </div>
+                        <div class="uk-margin">
+                            <input name="telefono" class="uk-input" type="number" value="<%= usuarioLogueado.telefono %>">
+                        </div>
+                        <div class="uk-margin">
+                            <input name="fotoPerfil" class="uk-input" type="text" value="<%= usuarioLogueado.fotoPerfil %>">
                         </div>
                         <div class="uk-margin">
                             <input type="submit" class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom" value="Realizar los cambios"></input>
