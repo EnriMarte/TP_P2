@@ -21,10 +21,32 @@ let postController = {
         res.redirect("/");
     })
       },
+
     detallePost: function(req, res, next) {
+
+      let idPosteoAMostrar = req.params.id
+      db.posteos.findOne(
+          {
+              where: [
+                  { id: idPosteoAMostrar },
+                  
+              ]
+          }
+      )
+      .then(function(posteo) {
+          db.usuarios.findOne(
+              {
+                  where: [
+                      { id: idPosteoAMostrar },
+                  ]
+              }
+          )
+          .then(function(usuario){
+          res.render("detallePost" ,{posteo: posteo, usuario: usuario, });
+          })
+      })
       
-        res.render("detallePost")
-      },
+        }
 };
 
 module.exports = postController;
