@@ -22,6 +22,7 @@ let postController = {
     })
       },
     detallePost: function(req, res, next) {
+      
         res.render("detallePost")
       },
 };
