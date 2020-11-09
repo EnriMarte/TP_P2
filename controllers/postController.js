@@ -42,7 +42,7 @@ let postController = {
               }
           )
           .then(function(usuario){
-          res.render("detallePost" ,{posteo: posteo, usuario: usuario, });
+          res.render("detallePost" ,{usuario: usuario, posteo, posteo});
           })
       })
       
