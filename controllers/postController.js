@@ -7,8 +7,8 @@ let postController = {
       },
     agregarPost: function(req, res, next) {
 
-    let urlImg = req.body.url;
-    let desc = req.body.comentario;
+    let urlImg = req.body.url; 
+    let desc = req.body.comentario; 
     
     let post = {
         idUsuario: req.session.usuarioLogueado.id,
@@ -38,7 +38,25 @@ let postController = {
       .then(function(posteo) {
         res.render("detallePost" ,{posteo: posteo});
         })
-        }
+        },
+
+    commentPost: function(req, res, next) {
+      let tComentario = req.body.txtcomentario;
+
+      let post = {
+        idPost: req.body.id,
+        idUsuario: req.session.usuarioLogueado.id,
+        txtComentario: tComentario,
+        
+      }
+
+      db.comentarios.create(post)
+      .then(function() {
+        res.redirect("/post");
+      })
+
+       },
+
 };
 
 module.exports = postController;

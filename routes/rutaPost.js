@@ -7,8 +7,7 @@ let postController = require("../controllers/postController")
 router.get('/agregar', postController.renderPost)
 router.post('/agregar', postController.agregarPost)
 
-router.get('/comment', postController.renderPost)
-router.post('/comment', postController.agregarPost)
+router.post('/comment/:id', postController.commentPost)
 
 router.get('/:id', postController.detallePost);
 
