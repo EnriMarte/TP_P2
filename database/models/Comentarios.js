@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
         id: {
             type: DataTypes.INTEGER,
             autoIncrement: true,
-            primaryKey: true
+            primaryKey: true,
         },
         idPost: DataTypes.INTEGER,
         idUsuario: DataTypes.INTEGER, 
@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
 
     let config = {
         tableName: "comentarios",
-        timestamps: false
+        timestamps: false,
     };
 
     const comentarios = sequelize.define(alias, cols, config);
@@ -29,7 +29,6 @@ module.exports = (sequelize, DataTypes) => {
             as: "usuarios",
             foreignKey: "idUsuario",
         });
-    
     }
    
 
