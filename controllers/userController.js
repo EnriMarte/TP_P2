@@ -71,11 +71,27 @@ let userController = {
             telefono: telefono,
             fotoPerfil: fotoPerfil
         }
+        db.usuarios.findOne(
+            {
+                where: [
+                    { nombreUser: username },
+                    
+                ]
+            }
+        ).then(function(usuario){
+            console.log(usuario);
+            if(usuario == null){
+                
+                db.usuarios.create(user)
+                .then(function() {
+                    res.redirect("/");
+                })
+            }else{
+                res.send("El usuario esta repe")
 
-        db.usuarios.create(user)
-        .then(function() {
-            res.redirect("/");
+            }
         })
+
     },
     regOk: function(req, res, next){
         res.render("regOk")
@@ -87,20 +103,32 @@ let userController = {
                 where: [
                     { id: idUsuarioAMostrar },
                     
+                ],
+                include: [ 
+                    {
+                        association: "seguidoress"
+                    },
+                    // {
+                    //     association: "usuarioSeguido"
+                    // }
+                    //aca tiene que haber asoc de posteos
                 ]
             }
         )
         .then(function(usuario) {
-            db.posteos.findAll(
-                {
-                    where: [
-                        { idUsuario: idUsuarioAMostrar },
-                    ]
-                }
-            )
-            .then(function(posteo){
-            res.render("miPerfil" ,{usuario: usuario, posteo: posteo});
-            })
+            res.send(usuario)
+            // res.render("miPerfil" ,{usuario: usuario});
+
+            // db.posteos.findAll(
+            //     {
+            //         where: [
+            //             { idUsuario: idUsuarioAMostrar },
+            //         ]
+            //     }
+            // )
+            // .then(function(posteo){
+            // res.render("miPerfil" ,{usuario: usuario, posteo: posteo});
+            // })
         })
         
     },
@@ -171,11 +199,27 @@ let userController = {
             idSeguidor: idUsuarioSession,
             idSeguido: idUsuario
         }
-        db.seguidores.create(regFollow)
-        .then(function() {
-            res.redirect("/");
-        })
-    }
-}
 
+        db.seguidores.findAll(
+            {
+                where: [
+                    { idSeguidor: idUsuarioSession },
+                    
+                ]
+            }
+        ).then(function(usuario){
+            console.log(usuario);
+            if(usuario == null){
+                
+                db.usuarios.create(user)
+                .then(function() {
+                    res.redirect("/");
+                })
+            }else{
+                res.send("El usuario esta repe")
+
+            }
+    })
+}
+}
 module.exports = userController;

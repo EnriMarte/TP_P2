@@ -27,13 +27,14 @@ module.exports = (sequelize, DataTypes) => {
     usuarios.associate = function(models) {
         usuarios.hasMany(models.posteos, {
             as: "posteos",
-            foreignKey: "usuarios_id",
+            foreignKey: "idUsuario",
         });     
-    }
-    usuarios.associate = function(models) {
-        usuarios.hasMany(models.seguidores, {
-            as: "seguidores",
-            foreignKey: "usuarios_id",
+        usuarios.belongsToMany(models.seguidores, {
+            as: "seguidoress",
+            through: "seguidores",
+            foreignKey: "idSeguidor",
+            otherKey: "id",
+            timestamps: false
         });     
     }
     return usuarios;

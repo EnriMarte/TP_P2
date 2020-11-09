@@ -31,7 +31,7 @@ let postController = {
                   { id: idPosteoAMostrar },
                   
               ], include: [
-                  { all: true }
+                  { all: true , nested: true }
               ]
           }
       )
