@@ -46,7 +46,7 @@
                         <%} else{%>
                             <% for( let i = 0; i < usuarios.length; i++ ) { %>
                             <li>
-                                <a href="Perfil/<%= usuarios[i].id %>">
+                                <a href="Perfil/<%= usuarios[i].id %>" class="links">
                                 <img src="<%= usuarios[i].fotoPerfil %>" alt="foto de perfil" width="150px"class="fotoperfil">
                                 <%= usuarios[i].nombre %> <%= usuarios[i].apellido %>
                                 </a> 

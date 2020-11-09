@@ -9,6 +9,11 @@ article.detalle-post .imagen-post{
 
 }
 
+.perfilPost{
+    width: 15%;
+    height: 95%;
+}
+
 .comentarios-detalle{
     border-left: 1px solid lightgray;
 }
@@ -62,5 +67,12 @@ article.detalle-post .imagen-post{
     margin-right: 4px !important;
 }
 
+.uk-button-primary {
+background-color:#f89a9a !important;
 
+}
+
+.uk-icon>* {
+color: #f89a9a !important;
+}
 
