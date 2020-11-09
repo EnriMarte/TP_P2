@@ -19,3 +19,7 @@
 .uk-h3, h3 {
     font-family: 'Gloria Hallelujah', cursive !important;
 }
+
+.uk-button-primary {
+    background-color: #f89a9a !important;
+}
