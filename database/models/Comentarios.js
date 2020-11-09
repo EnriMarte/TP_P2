@@ -6,7 +6,11 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.INTEGER,
             autoIncrement: true,
             primaryKey: true
-        }
+        },
+        idPost: DataTypes.INTEGER,
+        idUsuario: DataTypes.INTEGER, 
+        txtComentario: DataTypes.STRING,
+        fechaComent: DataTypes.DATE,
     };
 
     let config = {
@@ -17,10 +21,15 @@ module.exports = (sequelize, DataTypes) => {
     const comentarios = sequelize.define(alias, cols, config);
 
     comentarios.associate = function(models) {
-        // comentarios.belongsTo(models.posteos, {
-        //     as: "posteos",
-        //     foreignKey: "posteos_id",
-        // });     
+        comentarios.belongsTo(models.posteos, {
+            as: "posteos",
+            foreignKey: "idPost",
+        });
+        comentarios.belongsTo(models.usuarios, {
+            as: "usuarios",
+            foreignKey: "idUsuario",
+        });
+    
     }
    
 
