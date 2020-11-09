@@ -159,6 +159,25 @@ let userController = {
         .then(function() {
             res.render("index");
          })
+    },
+    follow: function(req, res){
+        res.render("home")
+    },
+    altaFollow: function(req, res){
+        let idUsuario = req.params.id
+        let idUsuarioSession = req.session.usuarioLogueado.id
+
+        console.log(req.params)       
+         console.log(idUsuarioSession);
+
+        let regFollow = {
+            idSeguidor: idUsuario,
+            idSeguido: idUsuarioSession
+        }
+        db.seguidores.create(regFollow)
+        .then(function() {
+            res.redirect("/");
+        })
     }
 }
 

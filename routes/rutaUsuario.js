@@ -12,6 +12,9 @@ router.post("/register", userController.storeUser);
 router.get("/login", userController.login);
 router.post("/login", userController.processLogin);
 
+router.get("/follow", userController.follow);
+router.post("/follow/:id", userController.altaFollow);
+
 router.get("/cerrarSes", userController.cerrarSes);
 
 

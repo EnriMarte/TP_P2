@@ -46,8 +46,11 @@
                     <div class="uk-width-2-3 uk-flex uk-flex-column uk-flex-around">
                         <div class="uk-flex uk-flex-middle">
                             <h3 class="uk-margin-remove"><%= usuario.nombre %> <%= usuario.apellido %></h3>
-                            <a href="/user/modificar" uk-icon="icon:cog; ratio: 1.2" class="uk-margin-left"></a>
-                            
+                            <a href="/user/modificar" uk-icon="icon:cog; ratio: 1.2" class="uk-margin-left"></a>  
+                            <form action="/user/follow/<%= usuario.id %> " method="POST">
+                                <input type="submit" class="uk-button uk-margin-left uk-button-primary uk-width-1-1 uk-margin-small-bottom" value="Follow"></input>
+                            </form>
+
                         </div>
                         <div>
                             <ul class="red-usuario uk-flex uk-flex-between uk-width-1-2">

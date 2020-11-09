@@ -20,9 +20,13 @@ module.exports = (sequelize, DataTypes) => {
 
     seguidores.associate = function(models) {
         seguidores.belongsTo(models.usuarios, {
-            as: "usuarios",
-            foreignKey: "usuarios_id",
-        });     
+            as: "usuarioSeguidor",
+            foreignKey: "id",
+        });
+        seguidores.belongsTo(models.usuarios, {
+            as: "usuarioSeguido",
+            foreignKey: "id",
+        });          
     }
     return seguidores;
 }
