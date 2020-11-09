@@ -31,12 +31,12 @@ let postController = {
                   { id: idPosteoAMostrar },
                   
               ], include: [
-                  { association: "usuarios" }
+                  { all: true }
               ]
           }
       )
       .then(function(posteo) {
-         res.render("detallePost" ,{posteo: posteo});
+        res.render("detallePost" ,{posteo: posteo});
         })
         }
 };

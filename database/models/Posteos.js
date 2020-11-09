@@ -23,7 +23,7 @@ module.exports = (sequelize, DataTypes) => {
     posteos.associate = function(models) {
         posteos.hasMany(models.comentarios, {
             as: "comentarios",
-            foreignKey: "txtPost",
+            foreignKey: "txtComentario",
         });     
         posteos.belongsTo(models.usuarios, {
             as: "usuarios",
