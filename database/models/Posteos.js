@@ -25,12 +25,10 @@ module.exports = (sequelize, DataTypes) => {
             as: "comentarios",
             foreignKey: "txtPost",
         });     
-    }
-    posteos.associate = function(models) {
         posteos.belongsTo(models.usuarios, {
             as: "usuarios",
             foreignKey: "idUsuario",
-        });     
+        });  
     }
     return posteos;
 }

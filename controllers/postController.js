@@ -30,22 +30,14 @@ let postController = {
               where: [
                   { id: idPosteoAMostrar },
                   
+              ], include: [
+                  { association: "usuarios" }
               ]
           }
       )
       .then(function(posteo) {
-          db.usuarios.findOne(
-              {
-                  where: [
-                      { id: idPosteoAMostrar },
-                  ]
-              }
-          )
-          .then(function(usuario){
-          res.render("detallePost" ,{usuario: usuario, posteo, posteo});
-          })
-      })
-      
+         res.render("detallePost" ,{posteo: posteo});
+        })
         }
 };
 
