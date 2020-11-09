@@ -56,7 +56,7 @@
                             <ul class="red-usuario uk-flex uk-flex-between uk-width-1-2">
                                 <li>6 posts</li>
                                 <li>1.222.203 seguidores</li>
-                                <li>2 seguidos</li>
+                                <li><%= usuario.seguidoress.lenght %> seguidos</li>
                             </ul>
                         </div>
                     </div>
@@ -65,12 +65,12 @@
 
                 <section class="muro uk-flex uk-flex-middle uk-flex-center">
                     <div class="uk-grid uk-child-width-1-3 uk-width-1-1 uk-margin-remove" uk-grid>
-                        <% for( let i = 0; i < posteo.length; i++ ) { %>
+                        <% for( let i = 0; i < usuario.posteos.length; i++ ) { %>
                         <div
                             class="uk-card uk-card-hover uk-card-body uk-flex uk-flex-column uk-flex-middle uk-flex-center ">
-                            <a href="/post/<%= posteo[i].id %>" class="link-detalle">
-                                <img src="<%= posteo[i].urlImagen %>" alt="foto de perfil" class="foto-perfil">
-                                <p class="uk-text-center"><%= posteo[i].txtPost %></p>
+                            <a href="/post/<%= usuario.posteos[i].id %>" class="link-detalle">
+                                <img src="<%= usuario.posteos[i].urlImagen %>" alt="foto de perfil" class="foto-perfil">
+                                <p class="uk-text-center"><%= usuario.posteos[i].txtPost %></p>
                             </a>
                         </div>
                         <%}%>

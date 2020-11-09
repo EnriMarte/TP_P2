@@ -108,27 +108,17 @@ let userController = {
                     {
                         association: "seguidoress"
                     },
+                    {
+                        association: "posteos"
+                    }
                     // {
                     //     association: "usuarioSeguido"
                     // }
-                    //aca tiene que haber asoc de posteos
                 ]
             }
         )
         .then(function(usuario) {
-            res.send(usuario)
-            // res.render("miPerfil" ,{usuario: usuario});
-
-            // db.posteos.findAll(
-            //     {
-            //         where: [
-            //             { idUsuario: idUsuarioAMostrar },
-            //         ]
-            //     }
-            // )
-            // .then(function(posteo){
-            // res.render("miPerfil" ,{usuario: usuario, posteo: posteo});
-            // })
+           res.render("miPerfil" ,{usuario: usuario});
         })
         
     },
