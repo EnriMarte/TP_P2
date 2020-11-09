@@ -167,12 +167,9 @@ let userController = {
         let idUsuario = req.params.id
         let idUsuarioSession = req.session.usuarioLogueado.id
 
-        console.log(req.params)       
-         console.log(idUsuarioSession);
-
         let regFollow = {
-            idSeguidor: idUsuario,
-            idSeguido: idUsuarioSession
+            idSeguidor: idUsuarioSession,
+            idSeguido: idUsuario
         }
         db.seguidores.create(regFollow)
         .then(function() {
