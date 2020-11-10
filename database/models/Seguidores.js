@@ -27,6 +27,13 @@ module.exports = (sequelize, DataTypes) => {
             otherKey: "id",
             timestamps: false
         });    
+        seguidores.belongsTo(models.usuarios, {
+            as: "usuarioSeguidos",
+            through: "usuarios",
+            foreignKey: "id",
+            otherKey: "id",
+            timestamps: false
+        });    
 
     }
     return seguidores;

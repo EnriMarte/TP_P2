@@ -110,6 +110,9 @@ let userController = {
                     },
                     {
                         association: "posteos"
+                    },
+                    {
+                        association: "seguido"  
                     }
                     // {
                     //     association: "usuarioSeguido"
@@ -118,6 +121,7 @@ let userController = {
             }
         )
         .then(function(usuario) {
+            //res.send(usuario)
            res.render("miPerfil" ,{usuario: usuario});
         })
         

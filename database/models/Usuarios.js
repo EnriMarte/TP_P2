@@ -35,7 +35,14 @@ module.exports = (sequelize, DataTypes) => {
             foreignKey: "idSeguidor",
             otherKey: "id",
             timestamps: false
-        });     
+        });
+        usuarios.belongsToMany(models.seguidores, {
+            as: "seguido",
+            through: "seguidores",
+            foreignKey: "idSeguido",
+            otherKey: "id",
+            timestamps: false
+        });         
     }
     return usuarios;
 }

@@ -36,23 +36,23 @@ let postController = {
           }
       )
       .then(function(posteo) {
-        res.render("detallePost" ,{posteo: posteo});
+        res.send(posteo);
+        //res.render("detallePost" ,{posteo: posteo});
         })
         },
 
     commentPost: function(req, res, next) {
-      let tComentario = req.body.txtcomentario;
+      let tComentario = req.body.coment;
+      let idParam = req.params.id;
 
       let post = {
-        idPost: req.body.id,
+        idPost: idParam,
         idUsuario: req.session.usuarioLogueado.id,
         txtComentario: tComentario,
-        
       }
-
       db.comentarios.create(post)
       .then(function() {
-        res.redirect("/post");
+        res.redirect("/post/" + idParam);
       })
 
        },
