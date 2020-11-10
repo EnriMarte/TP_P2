@@ -14,7 +14,7 @@ let userController = {
         if (req.session.usuarioLogueado != undefined) {
             res.redirect("perfil");
         }
-
+        // let error = req.("Error")
         // findAll retorna SIEMPRE un array. Si no matchean los datos findAll traer un array vacío pero SIEMPRE trae un array
         // findOne en cambio tiene dos opciones. O trae el dato, o trae null.
         db.usuarios.findOne(
@@ -26,8 +26,8 @@ let userController = {
             }
         )
         .then(function(usuario) {
-            console.log(bcrypt.compareSync(req.body.password, usuario.password));
             if (usuario == null) {
+                
                 res.send("El mail no existe")
             } else if (bcrypt.compareSync(req.body.password, usuario.password) == false) {
                 res.send("Mala contraseña")
@@ -114,14 +114,10 @@ let userController = {
                     {
                         association: "seguido"  
                     }
-                    // {
-                    //     association: "usuarioSeguido"
-                    // }
                 ]
             }
         )
         .then(function(usuario) {
-            //res.send(usuario)
            res.render("miPerfil" ,{usuario: usuario});
         })
         
