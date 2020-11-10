@@ -60,6 +60,8 @@ let userController = {
         let password = bcrypt.hashSync(req.body.password, 10);
         let telefono = req.body.telefono;
         let fotoPerfil = req.body.fotoPerfil;
+        let pregunta = req.body.preguntaSeguridad;
+        let respuesta = req.body.respuesta;
 
         let user = {
             nombre: nombre,
@@ -69,7 +71,10 @@ let userController = {
             mail: email,
             password: password,
             telefono: telefono,
-            fotoPerfil: fotoPerfil
+            fotoPerfil: fotoPerfil,
+            pregunta: pregunta,
+            respuesta: respuesta,
+            
         }
         db.usuarios.findOne(
             {
