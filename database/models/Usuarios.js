@@ -14,7 +14,9 @@ module.exports = (sequelize, DataTypes) => {
         mail: DataTypes.STRING,
         password: DataTypes.STRING,
         telefono: DataTypes.INTEGER,
-        fotoPerfil: DataTypes.STRING
+        fotoPerfil: DataTypes.STRING,
+        pregunta: DataTypes.STRING,
+        respuesta: DataTypes.STRING,
     };
 
     let config = {

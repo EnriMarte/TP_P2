@@ -44,29 +44,39 @@
                 
                         <legend class="uk-legend">Registracion </legend>
                         <div class="uk-margin">
-                            <input name="nombre" class="uk-input" type="text" placeholder="nombre">
+                            <input name="nombre" class="uk-input" type="text" placeholder="Nombre" required>
                         </div>
                         <div class="uk-margin">
-                            <input name="apellido" class="uk-input" type="text" placeholder="apellido">
+                            <input name="apellido" class="uk-input" type="text" placeholder="Apellido">
                         </div>
                         <div class="uk-margin">
-                            <input name="username" class="uk-input" type="text" placeholder="username">
+                            <input name="username" class="uk-input" type="text" placeholder="Username" required>
                         </div>
                         <div class="uk-margin">
                             <h5 class="uk-form-label">Fecha de nacimiento</h5>
-                            <input name="fecha" class="uk-input" type="date">
+                            <input name="fecha" class="uk-input" type="date" required>
                         </div>
                         <div class="uk-margin">
-                            <input name="email" class="uk-input" type="email" placeholder="ejemplo@mail.com">
+                            <input name="email" class="uk-input" type="email" placeholder="ejemplo@mail.com" required>
                         </div>
                         <div class="uk-margin">
-                            <input name="password" class="uk-input" type="password" placeholder="contraseña">
+                            <input name="password" class="uk-input" type="password" placeholder="Contraseña" required>
                         </div>
                         <div class="uk-margin">
                             <input name="telefono" class="uk-input" type="number" placeholder="1133484733">
                         </div>
                         <div class="uk-margin">
-                            <input name="fotoPerfil" class="uk-input" type="text" placeholder="ingrese url de su foto de perfil">
+                            <input name="fotoPerfil" class="uk-input" type="text" placeholder="Ingrese url de su foto de perfil">
+                        </div>
+                        <div class="uk-margin">
+                            <select id="preguntaSeguridad" name="preguntaSeguridad" class="uk-input" form="preguntas">
+                                <option value="mascota" class="uk-input">¿Como es el nombre de tu mascota?</option>
+                                <option value="vacaciones" class="uk-input">¿Cual es tu lugar preferido para vacacionar?</option>
+                                <option value="nacimiento" class="uk-input">¿Cual es el nombre de tu mejor amigo de la infancia?</option>
+                              </select>
+                        </div>
+                        <div class="uk-margin">
+                            <input name="respuesta" class="uk-input" type="text" placeholder="Respuesta a la pregunta" required>
                         </div>
                         <div class="uk-margin">
                             <input type="submit" class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom" value="Quiero ser parte de MoINCZ!"></input>
