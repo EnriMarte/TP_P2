@@ -28,7 +28,7 @@ let userController = {
         .then(function(usuario) {
             if (usuario == null) {
                 
-                res.send("El mail no existe")
+                res.send("El usuario no existe")
             } else if (bcrypt.compareSync(req.body.password, usuario.password) == false) {
                 res.send("Mala contraseña")
             } else {
@@ -55,6 +55,9 @@ let userController = {
         //     }
         // })
         
+    },
+    cambiarContra: function (req, res, next) {
+        res.render("cambiarContra")        
     },
     registrar: function(req, res, next) {
         if (req.session.usuarioLogueado != undefined) {

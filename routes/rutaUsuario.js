@@ -13,6 +13,7 @@ router.get("/login", userController.login);
 router.post("/login", userController.processLogin);
 
 router.get("/login/olvideContra", userController.olvideContra);
+router.get("/login/cambiarContra", userController.cambiarContra);
 
 router.get("/follow", userController.follow);
 router.post("/follow/:id", userController.altaFollow);
