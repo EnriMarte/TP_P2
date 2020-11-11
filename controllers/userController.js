@@ -66,9 +66,6 @@ let userController = {
                 }
             })
     },
-    cambiandoPass:function(req, res){
-        res.render("modificarPass")
-    },
     ejecutaPass: function(req, res){
         let password = bcrypt.hashSync(req.body.password, 10);
 
