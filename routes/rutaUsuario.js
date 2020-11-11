@@ -12,7 +12,7 @@ router.post("/register", userController.storeUser);
 router.get("/login", userController.login);
 router.post("/login", userController.processLogin);
 
-router.get("/olvideContra", userController.olvideContra);
+router.get("/login/olvideContra", userController.olvideContra);
 
 router.get("/follow", userController.follow);
 router.post("/follow/:id", userController.altaFollow);
