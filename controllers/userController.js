@@ -40,6 +40,14 @@ let userController = {
         })
 
     },
+    olvideContra: function (req, res, next) {
+        res.render("olvidePassword")    
+        if (usuario == null) {
+            res.send("El mail no existe")
+        } else if (
+            res.render("perfil/" + req.session.usuarioLogueado.id)
+        );
+    },
     registrar: function(req, res, next) {
         if (req.session.usuarioLogueado != undefined) {
             res.redirect("perfil/" + req.session.usuarioLogueado.id);
