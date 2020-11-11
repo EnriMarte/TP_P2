@@ -41,12 +41,20 @@ let userController = {
 
     },
     olvideContra: function (req, res, next) {
-        res.render("olvidePassword")    
-        if (usuario == null) {
-            res.send("El mail no existe")
-        } else if (
-            res.render("perfil/" + req.session.usuarioLogueado.id)
-        );
+        res.render("olvidePassword")
+        // .then(function (usuario) {
+        //     if (usuario.mail == null) {
+        //         res.send("El mail no existe")
+        //     } else if (
+        //         res.render("modificarPerfil" + req.session.usuarioLogueado.id)
+        //     ); 
+        // })    
+        // .then(function (usuario) {
+        //     if (usuario.mail == null) {
+        //         res.send("El mail no existe")
+        //     }
+        // })
+        
     },
     registrar: function(req, res, next) {
         if (req.session.usuarioLogueado != undefined) {
