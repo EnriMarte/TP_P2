@@ -1,7 +1,7 @@
 let db = require("../database/models")
 let op = db.Sequelize.Op;
 let bcrypt = require("bcryptjs");
-
+let usuario;
 let userController = {
     login: function (req, res, next) {
         if (req.session.usuarioLogueado != undefined) {
@@ -41,20 +41,47 @@ let userController = {
 
     },
     olvideContra: function (req, res, next) {
-        res.render("olvidePassword")
-        // .then(function (usuario) {
-        //     if (usuario.mail == null) {
-        //         res.send("El mail no existe")
-        //     } else if (
-        //         res.render("modificarPerfil" + req.session.usuarioLogueado.id)
-        //     ); 
-        // })    
-        // .then(function (usuario) {
-        //     if (usuario.mail == null) {
-        //         res.send("El mail no existe")
-        //     }
-        // })
+      res.render("olvidePassword")
         
+    },
+    changePass: function(req, res){
+        usuario = req.body.nombre
+        let pregunta = req.body.pregunta
+        let rta = req.body.rta
+        db.usuarios.findOne(
+            {
+                where: [
+                    { nombreUser: usuario },
+                    
+                ]
+            }).then(function(usuario){
+                if(usuario == undefined){
+                    res.send("escribi bien")
+                }
+                else if(usuario.pregunta == pregunta && usuario.respuesta == rta){
+                    res.render("modificarPass", {usuario: usuario})  
+                }else{
+                    
+                    res.send(usuario)
+                }
+            })
+    },
+    cambiandoPass:function(req, res){
+        res.render("modificarPass")
+    },
+    ejecutaPass: function(req, res){
+        let password = bcrypt.hashSync(req.body.password, 10);
+
+
+        db.usuarios.update({password: password}, { 
+            where: {
+                nombreUser: usuario               
+            }
+        })
+        .then(function() {
+            res.render("index");
+         })
+
     },
     registrar: function(req, res, next) {
         if (req.session.usuarioLogueado != undefined) {
@@ -76,7 +103,7 @@ let userController = {
         let password = bcrypt.hashSync(req.body.password, 10);
         let telefono = req.body.telefono;
         let fotoPerfil = req.body.fotoPerfil;
-        let pregunta = req.body.preguntaSeguridad;
+        let pregunta = req.body.pregunta;
         let respuesta = req.body.respuesta;
 
         let user = {
