@@ -129,7 +129,7 @@ let userController = {
                 
                 db.usuarios.create(user)
                 .then(function() {
-                    res.redirect("/");
+                    res.redirect("/user/login");
                 })
             }else{
                 res.send("El usuario esta repe")
