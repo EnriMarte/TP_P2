@@ -36,8 +36,8 @@ let postController = {
           }
       )
       .then(function(posteo) {
-        res.send(posteo);
-        //res.render("detallePost" ,{posteo: posteo});
+        //res.send(posteo);
+        res.render("detallePost" ,{posteo: posteo});
         })
         },
 
