@@ -4,10 +4,10 @@ let postController = require("../controllers/postController")
 
 /* GET home page. */
 
-router.get('/agregar', postController.renderPost)
-router.post('/agregar', postController.agregarPost)
+router.get('/agregar', postController.renderPost);
+router.post('/agregar', postController.agregarPost);
 
-router.post('/comment/:id', postController.commentPost)
+router.post('/comment/:id', postController.commentPost);
 
 router.get('/:id', postController.detallePost);
 
