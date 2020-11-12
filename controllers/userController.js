@@ -244,7 +244,6 @@ let userController = {
                 ]
             }
         ).then(function(usuario){
-
                 db.seguidores.create(regFollow)
                 .then(function() {
                     res.redirect("/user/perfil/" + idUsuario);
