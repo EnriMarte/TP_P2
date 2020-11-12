@@ -46,7 +46,10 @@
                     <div class="uk-width-2-3 uk-flex uk-flex-column uk-flex-around">
                         <div class="uk-flex uk-flex-middle">
                             <h3 class="uk-margin-remove"><%= usuario.nombre %> <%= usuario.apellido %></h3>
-                            <a href="/user/modificar" uk-icon="icon:cog; ratio: 1.2" class="uk-margin-left"></a> 
+                            <% if (usuario.id == usuarioLogueado.id) { %>
+                                <a href="/user/modificar" uk-icon="icon:cog; ratio: 1.2" class="uk-margin-left"></a> 
+                                
+                            <% } %>
                             <% if(usuario.id  != usuarioLogueado.id) {%>
                                 <% let check = usuario.seguido.filter(user => (user.idSeguidor == usuarioLogueado.id)) %>
                                 <% if(check.length != 0){%>
