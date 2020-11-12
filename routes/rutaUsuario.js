@@ -21,6 +21,8 @@ router.post("/changePass", userController.ejecutaPass);
 router.get("/follow", userController.follow);
 router.post("/follow/:id", userController.altaFollow);
 
+router.post("/unfollow/:id", userController.bajaFollow);
+
 router.get("/cerrarSes", userController.cerrarSes);
 
 

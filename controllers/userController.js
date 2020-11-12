@@ -163,7 +163,8 @@ let userController = {
             }
         )
         .then(function(usuario) {
-           res.render("miPerfil" ,{usuario: usuario});
+           // res.send(usuario)
+          res.render("miPerfil" ,{usuario: usuario});
         })
         
     },
@@ -243,18 +244,33 @@ let userController = {
                 ]
             }
         ).then(function(usuario){
-            console.log(usuario);
-            if(usuario == null){
-                
-                db.usuarios.create(user)
-                .then(function() {
-                    res.redirect("/");
-                })
-            }else{
-                res.send("El usuario esta repe")
 
-            }
+                db.seguidores.create(regFollow)
+                .then(function() {
+                    res.redirect("/user/perfil/" + idUsuario);
+                })
+
     })
-}
+    },   
+    bajaFollow: function(req, res){
+        let idUsuario = req.params.id
+        
+        db.seguidores.findOne({
+            where: {
+                idSeguidor: req.session.usuarioLogueado.id,
+                idSeguido: idUsuario
+            }
+        }).then(function(usuario){
+            db.seguidores.destroy({ 
+                where: {
+                    id: usuario.id               
+                }
+            })
+            .then(function() {
+                res.redirect("/user/perfil/" + idUsuario);
+            })
+        })
+
+    }
 }
 module.exports = userController;
