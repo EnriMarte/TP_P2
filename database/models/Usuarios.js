@@ -31,6 +31,10 @@ module.exports = (sequelize, DataTypes) => {
             as: "posteos",
             foreignKey: "idUsuario",
         });     
+        usuarios.hasMany(models.comentarios, {
+            as: "comentarios",
+            foreignKey: "idUsuario",
+        });
         usuarios.belongsToMany(models.seguidores, {
             as: "seguidoress",
             through: "seguidores",

@@ -142,7 +142,11 @@ let userController = {
         res.render("regOk")
     },
     perfil: function(req, res, next){
+        if (req.session.usuarioLogueado == undefined) {
+            res.render("index");
+        }
         let idUsuarioAMostrar = req.params.id
+        
         db.usuarios.findOne(
             {
                 where: [
