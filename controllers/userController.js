@@ -27,10 +27,13 @@ let userController = {
         )
         .then(function(usuario) {
             if (usuario == null) {
+                let errors = "Reingresa el nombre de usuario"
                 
-                res.send("El usuario no existe")
+                res.render("login", {errors: errors})
+                
             } else if (bcrypt.compareSync(req.body.password, usuario.password) == false) {
-                res.send("Mala contraseña")
+                
+                res.render("login")
             } else {
                 req.session.usuarioLogueado = usuario;
                 
@@ -38,7 +41,7 @@ let userController = {
                 // Todo bien!
             }
         })
-
+        
     },
     olvideContra: function (req, res, next) {
       res.render("olvidePassword")
