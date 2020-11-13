@@ -86,8 +86,7 @@ let userController = {
         if (req.session.usuarioLogueado != undefined) {
             res.redirect("perfil/" + req.session.usuarioLogueado.id);
         }
-
-        res.render("registracion");
+        res.render("registracion")
     },
     storeUser: function (req, res, next){
         if (req.session.usuarioLogueado != undefined) {
@@ -134,8 +133,8 @@ let userController = {
                     res.redirect("/user/login");
                 })
             }else{
-                res.send("El usuario esta repe")
-
+                // res.send("El usuario esta repe")
+               
             }
         })
 
