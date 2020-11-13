@@ -134,7 +134,7 @@ let userController = {
                 })
             }else{
                 // res.send("El usuario esta repe")
-               
+               res.render("registracion", {errorsReg: "Error"})
             }
         })
 
