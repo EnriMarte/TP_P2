@@ -120,7 +120,7 @@ let userController = {
         db.usuarios.findOne(
             {
                 where: [
-                    { nombreUser: username },
+                    { mail: email },
                     
                 ]
             }
