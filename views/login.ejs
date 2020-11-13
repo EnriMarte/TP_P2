@@ -42,8 +42,19 @@
             <div class="uk-container uk-container-large uk-flex uk-flex-middle uk-flex-center">
                 
                 <form action="/user/login" method="POST">
-                    <fieldset class="uk-fieldset">
-                
+                    <fieldset class="uk-fieldset"> 
+                        <% if(typeof errors !== 'undefined') { %>
+                            <div class="uk-alert-danger" uk-alert>
+                                <a class="uk-alert-close" uk-close></a>
+                                <p> El usuario esta mal</p>
+                            </div>
+                        <% } %>
+                        <% if(typeof errors2 !== 'undefined') { %>
+                            <div class="uk-alert-danger" uk-alert>
+                                <a class="uk-alert-close" uk-close></a>
+                                <p> La contraseña esta mal</p>
+                            </div>
+                        <% } %>
                         <legend class="uk-legend"> Login </legend>
                         <div class="uk-margin">
                             <input name="username" class="uk-input" type="text" placeholder="username">

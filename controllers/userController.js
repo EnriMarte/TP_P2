@@ -27,13 +27,12 @@ let userController = {
         )
         .then(function(usuario) {
             if (usuario == null) {
-                let errors = "Reingresa el nombre de usuario"
                 
-                res.render("login", {errors: errors})
+                res.render("login", {errors: "Error" })
                 
             } else if (bcrypt.compareSync(req.body.password, usuario.password) == false) {
                 
-                res.render("login")
+                res.render("login", {errors2: "Error" })
             } else {
                 req.session.usuarioLogueado = usuario;
                 
