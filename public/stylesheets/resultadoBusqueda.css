@@ -1,6 +1,8 @@
 .links {
     color: black;
+    list-style-type: none; 
 }
 .links:hover{
     color: #f89a9a;
 }
+

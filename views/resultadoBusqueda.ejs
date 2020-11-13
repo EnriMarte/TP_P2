@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="/stylesheets/header.css">
     <link rel="stylesheet" href="/stylesheets/footer.css">
     <link rel="stylesheet" href="/stylesheets/general.css">
+    
 
     <!-- UiKit -->
     <!-- <link rel="stylesheet" href="css/uikit.min.css">
@@ -37,21 +38,23 @@
 
 
     <main>
-        <div class="uk-section uk-section-small">
+        <div class="uk-section uk-section-small">  
             <div class="uk-container uk-container-large uk-flex uk-flex-middle uk-flex-center">
-               
-                <ul>
+                <ul class="links">
                     <% if(usuarios.length == 0) {%>
                             <h2>No results</h2>
                         <%} else{%>
+                            <h3 class="title" >Usuarios</h3> 
                             <% for( let i = 0; i < usuarios.length; i++ ) { %>
                             <li>
                                 <a href="Perfil/<%= usuarios[i].id %>" class="links">
-                                <img src="<%= usuarios[i].fotoPerfil %>" alt="foto de perfil" width="150px"class="fotoperfil">
+                                <img src="<%= usuarios[i].fotoPerfil %>" alt="foto de perfil" width="180px" class="links" class="fotoperfil">
                                 <%= usuarios[i].nombre %> <%= usuarios[i].apellido %>
                                 </a> 
-                            </li>    
+                            </li>   
+                            <br> 
                              <% } %>
+                             
                     <% } %>
 
                 </ul>
