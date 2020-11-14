@@ -9,6 +9,8 @@ router.post('/agregar', postController.agregarPost);
 
 router.post('/comment/:id', postController.commentPost);
 
+router.get('/eliminar/:id', postController.eliminarPost);
+
 router.get('/:id', postController.detallePost);
 
 
