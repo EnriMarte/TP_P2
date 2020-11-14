@@ -72,9 +72,6 @@ let userController = {
                 else if(usuario.pregunta == pregunta && usuario.respuesta == rta){
                     res.render("modificarPass", {usuario: usuario})  
                 }
-                else{
-                    res.send(usuario)
-                }
             })
     },
     ejecutaPass: function(req, res){
