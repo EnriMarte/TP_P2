@@ -60,12 +60,14 @@
                             </div>
                         <%} %>    
                         </div>
+                        <%if(usuarioLogueado != undefined){%>
                         <div class="agregar-comentario uk-flex uk-flex-middle">
                             <form action="/post/comment/<%= posteo.id %>" method="POST" class="uk-text-center">
                               <input name="coment" type="text" class="uk-input" placeholder="Agregar comentario"> 
                               <button class="uk-button uk-button-primary uk-margin-small-top" value="Comentar!" type="submit">Comentar</button>
                             </form>
                         </div>
+                        <%} %> 
                     </article>
                 </section>      
             </div>     
