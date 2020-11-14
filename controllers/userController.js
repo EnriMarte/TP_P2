@@ -63,13 +63,16 @@ let userController = {
                     
                 ]
             }).then(function(usuario){
-                if(usuario == undefined){
-                    res.send("escribi bien")
+                if(usuario == null || usuario == undefined){
+                    res.render("olvidePassword", {errors3: "Error"})
+                }
+                else if(usuario.respuesta !== rta){
+                    res.render("olvidePassword", {errors4: "Error"})
                 }
                 else if(usuario.pregunta == pregunta && usuario.respuesta == rta){
                     res.render("modificarPass", {usuario: usuario})  
-                }else{
-                    
+                }
+                else{
                     res.send(usuario)
                 }
             })
@@ -84,7 +87,12 @@ let userController = {
             }
         })
         .then(function() {
-            res.render("index");
+            if(usuario.password !== rta){
+                res.render("olvidePassword", {errors4: "Error"})
+            }
+            else{
+                res.render("index");
+            }
          })
 
     },
