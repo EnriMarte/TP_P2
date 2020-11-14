@@ -21,7 +21,6 @@ let postController = {
         res.redirect("/");
     })
       },
-
     detallePost: function(req, res, next) {
 
       let idPosteoAMostrar = req.params.id
@@ -39,9 +38,7 @@ let postController = {
         //res.send(posteo);
         res.render("detallePost" ,{posteo: posteo});
         })
-        },
-
-        
+      },    
      eliminarPost: function(req, res, next) {
       let idPosteoAMostrar = req.params.id
 
@@ -63,26 +60,58 @@ let postController = {
 
 
 
-  },
+      },
+     modifyRender: function(req, res){
 
-        
+      let id = req.params.id
+      db.posteos.findOne({
+        where: [
+          {
+            id: id
+          }
+        ]
+      }).then(function(posteo){
+         if (req.session.usuarioLogueado.id != posteo.dataValues.idUsuario) {
+          res.redirect("/post/"+ posteo.dataValues.id)
+         } 
+  
+        res.render("modificarPost", {posteo: posteo})
+      })
+      },
+     edit: function(req, res, next) {
+      let idPost = req.params.id
+      let tComentario = req.body.comentario
+      let url = req.body.url
 
-    commentPost: function(req, res, next) {
-      let tComentario = req.body.coment;
-      let idParam = req.params.id;
-
-      let post = {
-        idPost: idParam,
+      let nuevoPost = {
         idUsuario: req.session.usuarioLogueado.id,
-        txtComentario: tComentario,
+        urlImagen: url,
+        txtPost: tComentario,
       }
-      db.comentarios.create(post)
-      .then(function() {
-        res.redirect("/post/" + idParam);
+      db.posteos.update(nuevoPost,{
+        where: [{
+          id: idPost
+        }]
+      }).then(function(){
+        res.redirect("/post/"+ idPost)
       })
 
-       },
-
+      },
+     commentPost: function(req, res, next) {
+        let tComentario = req.body.coment;
+        let idParam = req.params.id;
+  
+        let post = {
+          idPost: idParam,
+          idUsuario: req.session.usuarioLogueado.id,
+          txtComentario: tComentario,
+        }
+        db.comentarios.create(post)
+        .then(function() {
+          res.redirect("/post/" + idParam);
+        })
+  
+      },
 };
 
 module.exports = postController;

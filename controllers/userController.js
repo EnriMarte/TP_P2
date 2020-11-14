@@ -81,12 +81,7 @@ let userController = {
             }
         })
         .then(function() {
-            if(usuario.password !== rta){
-                res.render("olvidePassword", {errors4: "Error"})
-            }
-            else{
-                res.render("index");
-            }
+            res.render("login");
          })
 
     },

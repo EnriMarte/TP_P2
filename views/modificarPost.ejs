@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moinczbook</title>
+    <link rel="icon"
+        href="https://w7.pngwing.com/pngs/624/811/png-transparent-computer-icons-facebook-social-media-f-logo-cross-brand.png"
+        type="image/x-icon">
+
+    <link rel="stylesheet" href="/stylesheets/registracion.css">
+    <link rel="stylesheet" href="/stylesheets/header.css">
+    <link rel="stylesheet" href="/stylesheets/footer.css">
+    <link rel="stylesheet" href="/stylesheets/general.css">
+
+    <!-- UiKit -->
+    <!-- <link rel="stylesheet" href="css/uikit.min.css">
+    <script src="js/uikit-icons.min.js"></script>
+    <script src="js/uikit.min.js"></script> -->
+    <!-- UiKit -->
+
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/css/uikit.min.css" />
+
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/js/uikit-icons.min.js"></script>
+</head>
+
+<body>
+    <%if (usuarioLogueado == undefined){%>
+        <% include partials/header %>
+        <%}else{%>
+         <% include partials/headerLog %>
+        <%}%>
+        <% if (usuarioLogueado.id != posteo.idUsuario) { %>
+         
+        <% } %>
+
+    <main>
+        <div class="uk-section uk-section-small">
+            <div class="uk-container">
+                <form action="/post/modificar/<%= posteo.id %>" method="POST">
+                    <fieldset class="uk-fieldset">
+                
+                        <legend class="uk-legend">Modificar post</legend>
+                        <div class="uk-margin">
+                            <input name="url" class="uk-input" type="text" value="<%= posteo.urlImagen%>">
+                        </div>
+                        <div class="uk-margin">
+                            <input name="comentario" class="uk-input" type="text" value="<%= posteo.txtPost%>">
+                        </div>
+                        <div class="uk-margin">
+                            <input type="submit" class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom" value="Modifica HDP!"></input>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <% include partials/footer %>
+
+</body>
+
+</html>
