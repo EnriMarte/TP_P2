@@ -35,12 +35,9 @@ let userController = {
                 
                 res.render("login", {errors2: "Error" })
             } else {
-                let recordame = req.body
                 req.session.usuarioLogueado = usuario;
-                if(recordame.checked == true){
-                    req.session.cookie.maxAge = 60 * 60 * 1000; 
-                } else {
-                  req.session.cookie.destroy;
+                if(req.body.recordame != undefined) {
+                    res.cookie('usuarioLog', usuario.id, {maxAge : 1000  * 31536000})
                 }
                 res.redirect("Perfil/" + usuario.id);
                 // Todo bien!
@@ -197,7 +194,7 @@ let userController = {
     },
     cerrarSes: function(req, res){
         req.session.usuarioLogueado = undefined;
-        req.session.cookie.destroy;
+        res.clearCookie('usuarioLog');
         res.redirect("/");
     },
     edit: function(req, res) {
@@ -232,7 +229,7 @@ let userController = {
             }
         })
         .then(function() {
-            res.render("index");
+            res.redirect("Perfil/"+ req.session.usuarioLogueado.id);
          })
     },
     follow: function(req, res){
