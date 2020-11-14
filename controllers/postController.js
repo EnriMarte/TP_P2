@@ -41,6 +41,32 @@ let postController = {
         })
         },
 
+        
+     eliminarPost: function(req, res, next) {
+      let idPosteoAMostrar = req.params.id
+
+      db.comentarios.destroy({ 
+        where: {
+            idPost: idPosteoAMostrar               
+        }
+        }) 
+        .then(function() {
+          db.posteos.destroy({
+            where: {
+              id: idPosteoAMostrar               
+          }})
+          .then(function() {
+            res.redirect("/user/perfil/" + req.session.usuarioLogueado.id);
+          })
+        })
+
+
+
+
+  },
+
+        
+
     commentPost: function(req, res, next) {
       let tComentario = req.body.coment;
       let idParam = req.params.id;
