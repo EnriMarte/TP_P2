@@ -44,9 +44,9 @@
                     <% if(usuarios.length == 0) {%>
                             <h2>No results</h2>
                         <%} else{%>
-                            <h3 class="title">Usuarios</h3> 
+                            <h3 class="uk-heading-divider" >Usuarios</h3> 
                             <% for( let i = 0; i < usuarios.length; i++ ) { %>
-                            <li>
+                            <li class="uk-heading-divider">
                                 <a href="Perfil/<%= usuarios[i].id %>" class="links">
                                 <img src="<%= usuarios[i].fotoPerfil %>" style="width: 75px; height: 75px; border-radius: 50%;" alt="foto de perfil" width="180px" class="links" class="fotoperfil">
                                 <%= usuarios[i].nombre %> <%= usuarios[i].apellido %>
