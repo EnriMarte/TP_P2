@@ -27,7 +27,12 @@ router.get("/cerrarSes", userController.cerrarSes);
 
 
 router.get('/regok', userController.regOk);
+
+router.get('/perfil/mifeed', userController.mifeed);
+
 router.get('/perfil/:id', userController.perfil);
+
+
 
 router.get('/search', userController.search);
 

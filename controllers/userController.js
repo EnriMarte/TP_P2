@@ -5,18 +5,19 @@ let usuario;
 let userController = {
     login: function (req, res, next) {
         if (req.session.usuarioLogueado != undefined) {
-            res.redirect("perfil");
+            res.redirect("perfil/" + req.session.usuarioLogueado.id);
             
         }
         res.render("login")
     },
     processLogin: function(req, res, next){
         if (req.session.usuarioLogueado != undefined) {
-            res.redirect("perfil");
+            res.redirect("perfil/" + req.session.usuarioLogueado.id);
         }
         // let error = req.("Error")
         // findAll retorna SIEMPRE un array. Si no matchean los datos findAll traer un array vacío pero SIEMPRE trae un array
         // findOne en cambio tiene dos opciones. O trae el dato, o trae null.
+
         db.usuarios.findOne(
             {
                 where: [
@@ -34,8 +35,13 @@ let userController = {
                 
                 res.render("login", {errors2: "Error" })
             } else {
+                let recordame = req.body
                 req.session.usuarioLogueado = usuario;
-                
+                if(recordame.checked == true){
+                    req.session.cookie.maxAge = 60 * 60 * 1000; 
+                } else {
+                  req.session.cookie.destroy;
+                }
                 res.redirect("Perfil/" + usuario.id);
                 // Todo bien!
             }
@@ -144,7 +150,7 @@ let userController = {
     },
     perfil: function(req, res, next){
         if (req.session.usuarioLogueado == undefined) {
-            res.render("index");
+            res.render("login");
         }
         let idUsuarioAMostrar = req.params.id
         
@@ -191,7 +197,7 @@ let userController = {
     },
     cerrarSes: function(req, res){
         req.session.usuarioLogueado = undefined;
-        
+        req.session.cookie.destroy;
         res.redirect("/");
     },
     edit: function(req, res) {
@@ -275,6 +281,21 @@ let userController = {
             })
         })
 
+    },
+    mifeed: function(req, res){
+        
+      let usuarioLogueado = req.session.usuarioLogueado.id
+      db.posteos.findAll({
+          where:[
+            {idSeguidor: usuarioLogueado }
+          ],
+        include:[
+          { all: true , nested: true }
+      ]
+      }).then(function(dataAll) {
+    res.send(dataAll)
+    //res.render("mifeed" ,{dataAll: dataAll});
+    })
     }
 }
 module.exports = userController;
