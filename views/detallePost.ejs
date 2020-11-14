@@ -48,7 +48,8 @@
                         <img src="<%= posteo.urlImagen %>" alt="Imagen del post" class="imagen-post ">
                     </article>
                     <% if (posteo.idUsuario == usuarioLogueado.id) { %>
-                        <a href="eliminar/<%= posteo.id %>" uk-icon="icon: close" class="uk-margin-left"></a> 
+                        <a href="eliminar/<%= posteo.id %>" uk-icon="icon: trash" class="uk-margin-left"></a> 
+                        <a href="eliminar/<%= posteo.id %>" uk-icon="icon: file-edit" class="uk-margin-left"></a> 
                         
                     <% } %>
                     <article class="uk-width-1-3 uk-flex uk-flex-column comentarios-detalle">
