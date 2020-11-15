@@ -28,7 +28,7 @@ module.exports = (sequelize, DataTypes) => {
         posteos.belongsTo(models.usuarios, {
             as: "usuarios",
             foreignKey: "idUsuario",
-        });  
+        }); 
     }
     return posteos;
 }

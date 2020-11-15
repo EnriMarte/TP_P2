@@ -282,12 +282,14 @@ let userController = {
     mifeed: function(req, res){
         
       let usuarioLogueado = req.session.usuarioLogueado.id
-      db.posteos.findAll({
+      db.seguidores.findAll({
           where:[
             {idSeguidor: usuarioLogueado }
           ],
         include:[
-          { all: true , nested: true }
+            {
+                association: "posteoss"
+            },
       ]
       }).then(function(dataAll) {
     res.send(dataAll)

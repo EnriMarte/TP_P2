@@ -22,7 +22,9 @@ let postController = {
     })
       },
     detallePost: function(req, res, next) {
-
+      // if (req.session.usuarioLogueado == undefined) {
+      //   res.redirect("/user/login");
+      // }
       let idPosteoAMostrar = req.params.id
       db.posteos.findOne(
           {
@@ -62,7 +64,6 @@ let postController = {
 
       },
      modifyRender: function(req, res){
-
       let id = req.params.id
       db.posteos.findOne({
         where: [

@@ -33,6 +33,10 @@ module.exports = (sequelize, DataTypes) => {
             foreignKey: "id",
             otherKey: "id",
             timestamps: false
+        });   
+        seguidores.belongsTo(models.posteos, {
+            as: "posteoss",
+            foreignKey: "id"
         });    
 
     }

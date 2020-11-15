@@ -47,11 +47,7 @@
                     <article class="uk-width-2-3 uk-flex uk-flex-center uk-flex-middle detalle-post">
                         <img src="<%= posteo.urlImagen %>" alt="Imagen del post" class="imagen-post ">
                     </article>
-                    <% if (posteo.idUsuario == usuarioLogueado.id) { %>
-                        <a href="eliminar/<%= posteo.id %>" uk-icon="icon: trash" class="uk-margin-left"></a> 
-                        <a href="modificar/<%= posteo.id %>" uk-icon="icon: file-edit" class="uk-margin-left"></a> 
-                        
-                    <% } %>
+                    <% if (usuarioLogueado == undefined){ %>
                     <article class="uk-width-1-3 uk-flex uk-flex-column comentarios-detalle">
                         <div class="info-post uk-flex uk-flex-middle">
                             <img src="<%= posteo.usuarios.fotoPerfil %>" alt="Foto del usuario" class="perfilPost">
@@ -69,7 +65,28 @@
                             </div>
                         <%} %>    
                         </div>
-                        <%if(usuarioLogueado != undefined){%>
+                        <%}else{ %>
+                        <%  if(posteo.idUsuario == usuarioLogueado.id) {%>             
+                        <a href="eliminar/<%= posteo.id %>" uk-icon="icon: trash" class="uk-margin-left"></a> 
+                        <a href="modificar/<%= posteo.id %>" uk-icon="icon: file-edit" class="uk-margin-left"></a> 
+                        <%} %> 
+                    <article class="uk-width-1-3 uk-flex uk-flex-column comentarios-detalle">
+                        <div class="info-post uk-flex uk-flex-middle">
+                            <img src="<%= posteo.usuarios.fotoPerfil %>" alt="Foto del usuario" class="perfilPost">
+                            <h3> <%= posteo.usuarios.nombre %> </h3>
+                        </div>
+                            <div class="lista-comentarios" >
+                        <% for( let i = 0; i < posteo.comentarios.length; i++ ) { %>
+
+                            <div class="comentario uk-flex uk-flex-middle uk-margin-small-top">
+                                <div class="uk-width-1-4 uk-flex uk-flex-center">
+                                    <img src="<%= posteo.comentarios[i].usuarios.fotoPerfil %>" style="height: 25px; width: 25px" alt="Foto de usuario">
+                                </div>
+                                <h6 class="uk-margin-remove uk-width-2-4"><a href="/user/perfil/<%= posteo.comentarios[i].usuarios.id %>"><%= posteo.comentarios[i].usuarios.nombre %></a> <%= posteo.comentarios[i].txtComentario %></h6>
+                                <a href="" uk-icon="icon:heart; ratio: 0.8" class="uk-width-1-4 uk-text-right icono-meGusta"></a>
+                            </div>
+                        <%} %>    
+                        </div>
                         <div class="agregar-comentario uk-flex uk-flex-middle">
                             <form action="/post/comment/<%= posteo.id %>" method="POST" class="uk-text-center">
                               <input name="coment" type="text" class="uk-input" placeholder="Agregar comentario"> 
