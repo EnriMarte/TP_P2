@@ -72,7 +72,7 @@ let postController = {
           }
         ]
       }).then(function(posteo){
-         if (req.session.usuarioLogueado.id != posteo.dataValues.idUsuario) {
+         if (req.session.usuarioLogueado.id != posteo.idUsuario) {
           res.redirect("/post/"+ posteo.dataValues.id)
          } 
   
