@@ -208,6 +208,7 @@ let userController = {
         res.render("modificarPerfil", {usuarioModificar: usuarioModificar});
     },
     modify: function(req, res){
+        let usuarioModificar = req.session.usuarioLogueado
         let idUser = req.session.usuarioLogueado.id
         let nombre = req.body.nombre;
         let apellido = req.body.apellido;
@@ -227,15 +228,38 @@ let userController = {
             telefono: telefono,
             fotoPerfil: fotoPerfil
         }
+        db.usuarios.findOne(
+            {
+                where: [
+                    { mail: mail },
+                    
+                ]
+            }).then(function(userEncontrado){
+                if(userEncontrado == null){
+                    db.usuarios.update(usEdi, { 
+                        where: {
+                            id: idUser               
+                        }
+                    })
+                    .then(function() {
+                        res.redirect("Perfil/"+ req.session.usuarioLogueado.id);
+                     })
+                }else if(userEncontrado.mail == usuarioModificar.mail){
+                    db.usuarios.update(usEdi, { 
+                        where: {
+                            id: idUser               
+                        }
+                    })
+                    .then(function() {
+                        res.redirect("Perfil/"+ req.session.usuarioLogueado.id);
+                     })
+                }else{
+                    // res.send("El usuario esta repe")
+                   res.render("modificarPerfil", {errorsMod: "Error", usuarioModificar: usuarioModificar})
+                }
 
-        db.usuarios.update(usEdi, { 
-            where: {
-                id: idUser               
-            }
-        })
-        .then(function() {
-            res.redirect("Perfil/"+ req.session.usuarioLogueado.id);
-         })
+            })
+      
     },
     follow: function(req, res){
         res.render("home")

@@ -41,7 +41,12 @@
             <div class="uk-container">
                 <form action="modificar" method="POST">
                     <fieldset class="uk-fieldset">
-                
+                        <% if(typeof errorsMod !== 'undefined') { %>
+                            <div class="uk-alert-danger" uk-alert>
+                                <a class="uk-alert-close" uk-close></a>
+                                <p> El mail ya se ha utilizado</p>
+                            </div>
+                        <% } %>
                         <legend class="uk-legend"> Modificar </legend>
                         <div class="uk-margin">
                             <input name="nombre" class="uk-input" type="text" value="<%= usuarioLogueado.nombre %>">
