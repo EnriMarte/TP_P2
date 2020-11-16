@@ -77,7 +77,7 @@ let postController = {
         ]
       }).then(function(posteo){
          if (req.session.usuarioLogueado.id != posteo.idUsuario) {
-          res.redirect("/post/"+ posteo.dataValues.id)
+          res.redirect("/post/"+ posteo.id)
          } 
 
         res.render("modificarPost", {posteo: posteo})
