@@ -46,9 +46,7 @@ let userController = {
         
     },
     olvideContra: function (req, res, next) {
-    if (req.session.usuarioLogueado == undefined) {
-            res.redirect("/user/login");
-      }
+
       res.render("olvidePassword")
         
     },
@@ -273,20 +271,11 @@ let userController = {
             idSeguido: idUsuario
         }
 
-        db.seguidores.findAll(
-            {
-                where: [
-                    { idSeguidor: idUsuarioSession },
-                    
-                ]
-            }
-        ).then(function(usuario){
-                db.seguidores.create(regFollow)
-                .then(function() {
-                    res.redirect("/user/perfil/" + idUsuario);
-                })
+         db.seguidores.create(regFollow)
+            .then(function() {
+            res.redirect("/user/perfil/" + idUsuario);
+         })
 
-    })
     },   
     bajaFollow: function(req, res){
         let idUsuario = req.params.id
