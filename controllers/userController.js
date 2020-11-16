@@ -46,6 +46,9 @@ let userController = {
         
     },
     olvideContra: function (req, res, next) {
+    if (req.session.usuarioLogueado == undefined) {
+            res.redirect("/user/login");
+      }
       res.render("olvidePassword")
         
     },

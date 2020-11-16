@@ -7,7 +7,6 @@ let postController = require("../controllers/postController")
 router.get('/agregar', postController.renderPost);
 router.post('/agregar', postController.agregarPost);
 
-
 router.get('/modificar/:id', postController.modifyRender);
 router.post('/modificar/:id', postController.edit);
 

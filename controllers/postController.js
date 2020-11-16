@@ -3,6 +3,9 @@ let op = db.Sequelize.Op;
 
 let postController = {
     renderPost: function(req, res, next) {
+      if (req.session.usuarioLogueado == undefined) {
+        res.redirect("/user/login");
+   }
         res.render("agregarPost")
       },
     agregarPost: function(req, res, next) {
@@ -22,9 +25,9 @@ let postController = {
     })
       },
     detallePost: function(req, res, next) {
-      // if (req.session.usuarioLogueado == undefined) {
-      //   res.redirect("/user/login");
-      // }
+  //     if (req.session.usuarioLogueado == undefined) {
+  //       res.redirect("/user/login");
+  //  }
       let idPosteoAMostrar = req.params.id
       db.posteos.findOne(
           {
@@ -33,7 +36,8 @@ let postController = {
                   
               ], include: [
                   { all: true , nested: true }
-              ]
+              ], 
+              order:[ ['id', 'DESC']]
           }
       )
       .then(function(posteo) {
@@ -75,7 +79,7 @@ let postController = {
          if (req.session.usuarioLogueado.id != posteo.idUsuario) {
           res.redirect("/post/"+ posteo.dataValues.id)
          } 
-  
+
         res.render("modificarPost", {posteo: posteo})
       })
       },
