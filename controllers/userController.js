@@ -67,7 +67,7 @@ let userController = {
                     res.render("olvidePassword", {errors4: "Error"})
                 }
                 else if(usuario.pregunta == pregunta && usuario.respuesta == rta){
-                    res.render("modificarPass", {usuario: usuario})  
+                    res.render("modificarPass")  
                 }
             })
     },
