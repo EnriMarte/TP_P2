@@ -202,7 +202,9 @@ let userController = {
     },
     edit: function(req, res) {
         let usuarioModificar = req.session.usuarioLogueado
-
+        if (req.session.usuarioLogueado == undefined) {
+            res.redirect("/user/login");
+        }
         res.render("modificarPerfil", {usuarioModificar: usuarioModificar});
     },
     modify: function(req, res){
