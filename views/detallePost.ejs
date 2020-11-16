@@ -74,6 +74,8 @@
                         <div class="info-post uk-flex uk-flex-middle">
                             <img src="<%= posteo.usuarios.fotoPerfil %>" alt="Foto del usuario" class="perfilPost">
                             <h3> <%= posteo.usuarios.nombre %> </h3>
+                            <h4> <%= posteo.txtPost %> </h4>
+
                         </div>
                             <div class="lista-comentarios" >
                         <% for( let i = 0; i < posteo.comentarios.length; i++ ) { %>
