@@ -18,7 +18,6 @@ router.post("/olvideContra", userController.changePass);
 router.post("/changePass", userController.ejecutaPass);
 
 
-router.get("/follow", userController.follow);
 router.post("/follow/:id", userController.altaFollow);
 
 router.post("/unfollow/:id", userController.bajaFollow);

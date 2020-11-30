@@ -46,10 +46,6 @@ let userController = {
         
     },
     olvideContra: function (req, res, next) {
-<<<<<<< HEAD
-
-=======
->>>>>>> 2f81c7fcbfbfef3c2d12dcd91ae1a9a6b4a1958b
       res.render("olvidePassword")
         
     },
@@ -261,9 +257,6 @@ let userController = {
 
             })
       
-    },
-    follow: function(req, res){
-        res.render("home")
     },
     altaFollow: function(req, res){
         let idUsuario = req.params.id
