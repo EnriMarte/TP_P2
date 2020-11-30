@@ -43,6 +43,13 @@ let userController = {
                 // Todo bien!
             }
         })
+
+        console.log("hola");
+        if(2 == 3){
+            
+        }else{
+            console.log("Ls");
+        }
         
     },
     olvideContra: function (req, res, next) {
